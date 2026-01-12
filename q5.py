@@ -1,13 +1,11 @@
-text = input("Enter a string: ").lower()
+words = ["This", "is", "good", "is"]
 
 freq = {}
+for word in words:
+    lower_word = word.lower()  # Create a new variable
+    if lower_word in freq:
+        freq[lower_word] += 1
+    else:
+        freq[lower_word] = 1
 
-for ch in text:
-    if ch.isalpha():
-        if ch in freq:
-            freq[ch] += 1
-        else:
-            freq[ch] = 1
-
-for ch in freq:
-    print(ch, "→", freq[ch])
+print(freq)

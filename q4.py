@@ -1,32 +1,24 @@
-password = input("Enter a password: ").strip()
+books = {
+    'Book1': 5,
+    'Book2': 6,
+    'Book3': 10
+}
 
-# Flags to track requirements
-has_letter = False
-has_digit = False
-has_special = False
+book_name = input("Enter book name: ")
 
-# Check each character
-for c in password:
-    if c.isalpha():
-        has_letter = True
-    elif c.isdigit():
-        has_digit = True
-    elif c in "@#$%&":
-        has_special = True
+while True:
+    copies = input("How many copies do you want? ")
+    
+    if copies.isdigit():
+        copies = int(copies)
+        break
+    else:
+        print("Please enter a valid number.")
 
-# Determine strength
-if len(password) < 6:
-    print("Weak password: Too short (must be at least 6 characters)")
-
-elif password.isalpha() or password.isdigit():
-    # Only letters OR only digits → weak (even if long)
-    print("Weak password: Must contain both letters and digits")
-
-elif len(password) >= 8 and has_letter and has_digit and has_special:
-    print("Strong password")
-
-elif len(password) >= 6 and has_letter and has_digit:
-    print("Moderate password")
-
+if book_name not in books:
+    print("Unavailable")
 else:
-    print("Moderate password")  # Covers cases like special chars but short length
+    if books[book_name] >= copies:
+        print("Available")
+    elif books[book_name] < copies:
+        print("Partially Available")

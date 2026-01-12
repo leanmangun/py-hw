@@ -1,5 +1,12 @@
-word = input("Enter a word: ")
-index = int(input("Enter starting index: "))
+words = ["apple", "banana", "apple", "orange", "banana", "banana"]
 
-substring = word[index:]
-print("Substring from index", index, ":", '"' + substring + '"')
+freq = {}
+for word in words:
+    if word in freq:
+        freq[word] += 1
+    else:
+        freq[word] = 1
+
+duplicates = {word: count for word, count in freq.items() if count > 1}
+
+print("Duplicates:", duplicates)

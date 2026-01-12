@@ -1,12 +1,12 @@
-full_name = input("Enter your full name: ").strip()
+text = input("Enter a sentence: ")
+words = text.split()
+new_words = []
 
-# Remove extra spaces and split into parts
-parts = full_name.split()
+for i in range(len(words)):
+    if i % 2 == 1:
+        new_words.append(words[i][::-1])
+    else:
+        new_words.append(words[i])
 
-# Basic validation: ensure at least two names are provided
-if len(parts) < 2:
-    print("Error: Please enter at least a first and last name.")
-else:
-    first_initial = parts[0][0].upper()
-    last_initial = parts[-1][0].upper()
-    print("Your initials are:", f"{first_initial}.{last_initial}.")
+result = " ".join(new_words)
+print(result)

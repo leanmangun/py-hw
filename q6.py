@@ -1,15 +1,11 @@
-text = input("Enter a string: ").strip().lower()
+def largest_word(sentence):
+    words = sentence.split()
+    largest = words[0]
 
-vowels = "aeiou"
-vowel_count = 0
-consonant_count = 0
+    for word in words:
+        if len(word) > len(largest):
+            largest = word
 
-for ch in text:
-    if ch.isalpha():  # Only count letters
-        if ch in vowels:
-            vowel_count += 1
-        else:
-            consonant_count += 1
+    return largest
 
-print("Vowels:", vowel_count)
-print("Consonants:", consonant_count)
+print(largest_word("Python programming is awesome"))
